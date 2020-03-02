@@ -24,21 +24,21 @@ Core/instance/index.js
 
 Vue 构造函数
 
-![1566044170275](C:\Users\px\AppData\Roaming\Typora\typora-user-images\1566044170275.png)
+![1566044170275](img\1566044170275.png)
 
  给Vue.property扩展一些方法
 
-![1566044356830](C:\Users\px\AppData\Roaming\Typora\typora-user-images\1566044356830.png)
+![1566044356830](img\1566044356830.png)
 
 提示：Vue 不使用class类，而是将这些扩展分散到模块中，便于管理
 
 /core/globel-api/index.js
 
-![1566044983243](C:\Users\px\AppData\Roaming\Typora\typora-user-images\1566044983243.png)
+![1566044983243](img\1566044983243.png)
 
 extend nextTick mergeOptions defineReactive
 
 Vue.util暴露的方法最好不要依赖，因为它经常发生变化 ，是不稳定的。
 
-![1566045236513](C:\Users\px\AppData\Roaming\Typora\typora-user-images\1566045236513.png)
+![1566045236513](img\1566045236513.png)
 
