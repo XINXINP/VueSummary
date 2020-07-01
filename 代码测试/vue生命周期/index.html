@@ -1,3 +1,9 @@
+<!--
+ * @Descripttion: 🐉
+ * @Author: xinxin
+ * @Date: 2020-07-01 05:47:25
+ * @LastEditTime: 2020-07-01 09:14:37
+--> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +18,7 @@
     <div id="box">
         <input type="text" name="" v-model="msg" id="">
         {{ msg }}
+        <button @click="destoryCom">销毁组件</button>
     </div>
 </body>
 <script >
@@ -19,6 +26,11 @@
         el:"#box",
         data:{
             msg:'123'
+        },
+        methods: {
+            destoryCom(){
+                this.$destroy()
+            }
         },
         beforeCreate() {
             console.log(`%c beforeCreate`, "color:red;font-size:20px");
