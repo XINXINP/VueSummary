@@ -1,0 +1,23 @@
+{
+  "name": "vuesummary",
+  "version": "1.0.0",
+  "description": "vue 系列",
+  "main": "vue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy":"bash deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XINXINP/VueSummary.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "xinxinp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XINXINP/VueSummary/issues"
+  },
+  "homepage": "https://github.com/XINXINP/VueSummary#readme"
+}

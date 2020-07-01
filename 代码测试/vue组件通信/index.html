@@ -1,0 +1,136 @@
+<!--
+ * @Descripttion: 🐉 vue组件传值
+ * @Author: xinxin
+ * @Date: 2020-07-01 06:22:03
+ * @LastEditTime: 2020-07-01 08:57:58
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 组件传值</title>
+    <script src="../vue.js"></script>
+</head>
+<style>
+</style>
+<body>
+    <div id="app"></div>
+    <br>
+    <div id="box"></div>
+    <br>
+    <div id="other"></div>
+    <br>
+</body>
+<script>
+        // -------------------------------------------------------------------
+    //子组件
+    Vue.component('son',{
+        template:`
+        <div><h2>I am Son.I like {{food}}</h2></div>
+        `,
+        props:['food']
+    });
+        // -------------------------------------------------------------------
+    //子组件1
+    Vue.component('son1',{
+    template:`
+    <div><h2>I am Son1.I like color is {{colo}}</h2></div>
+    `,
+    inject:['color'],
+    data(){
+        return{
+            colo:this.color
+        }
+    }
+    });
+        // -------------------------------------------------------------------
+   //父组件
+    Vue.component('dad',{
+        // data(){
+        //     return {food:this.food}
+        // },
+        template:`
+        <div><h1>I am Dad.I like {{food}}</h1><son :food="food"/></div>
+        `,
+        props:['food']
+    });
+        // -------------------------------------------------------------------
+         //父组件1
+    Vue.component('dad1',{
+        data(){
+            return {colors:'null'}
+        },
+        template:`
+        <div><h1>I am Dad1.I like {{colors}}</h1><son1/><input type="text" name="" v-model="colors" id="">
+        </div>
+        `,
+        provide() {return {'color':this.colors}},
+        mounted() {
+        this.colors= 'red'
+        }
+    });
+        // -------------------------------------------------------------------
+        //兄弟组件1
+        Vue.component('brother1',{
+        data(){
+            return {age:null}
+        },
+        template:`
+        <div><h2>I am brother1.My age is {{age}}</h2>
+        <input type="text" name="" v-model="age" @input="postData(age)"id="">
+        </div>
+        `,
+        methods: {
+            postData(age){
+                bus.$emit('bro',age)
+                // console.log(age);
+            }
+        },
+    });
+    // -------------------------------------------------------------------
+    //兄弟组件2
+    var bus = new Vue();
+    Vue.component('brother2',{
+        data(){
+            return {age:null}
+        },
+        template:`
+        <div><h2>I am brother2.My age is more one year than brother1.So my age is {{age}}</h2></div>
+        `,
+        mounted() {
+            bus.$on('bro',(val)=>{
+            this.age = val+1;
+            })
+        },
+    });
+        // -------------------------------------------------------------------
+    //示例一
+    const app = new Vue({
+        el:"#app",
+        template:`
+        <div><dad :food="food"/><input type="text" name="" v-model="food" id=""></div>
+        `,
+        data(){
+            return{
+                food:'egg'
+            }
+        }
+    });
+        // -------------------------------------------------------------------
+    //示例二
+    const box = new Vue({
+        el:"#box",
+        template:`
+        <div><brother1 /><brother2/></div>
+        `
+    });
+        // -------------------------------------------------------------------
+    const other = new Vue({
+        el:"#other",
+        template:`
+        <div><dad1/></div>
+        `
+    });
+</script>
+</html>
