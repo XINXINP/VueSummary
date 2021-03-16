@@ -126,73 +126,68 @@ export default Vue
 - 根据package.json找到入口文件
 
 - /entry-runtime-with-compiler.js
-![img](file:///C:\Users\px\AppData\Local\Temp\ksohtml7208\wps1.jpg)
 - Runtime/index.js
-![img](file:///C:\Users\px\AppData\Local\Temp\ksohtml7208\wps2.jpg) 
 - core/index.js
-![img](file:///C:\Users\px\AppData\Local\Temp\ksohtml7208\wps3.jpg) 
 - 初始化全局变量
-![img](file:///C:\Users\px\AppData\Local\Temp\ksohtml7208\wps4.jpg) 
 - Core/instance/index.js
-![img](file:///C:\Users\px\AppData\Local\Temp\ksohtml7208\wps5.jpg) 
 - Vue 构造函数
-![1566044170275](img\1566044170275.png)
+![1566044170275](../img/1566044170275.png)
 
  给Vue.property扩展一些方法
-![1566044356830](img\1566044356830.png)
+![1566044356830](../img/1566044356830.png)
 ⏰提示：Vue 不使用class类，而是将这些扩展分散到模块中，便于管理
 - /core/globel-api/index.js
-![1566044983243](img\1566044983243.png)
+![1566044983243](../img/1566044983243.png)
 - extend nextTick mergeOptions defineReactive
 - Vue.util暴露的方法最好不要依赖，因为它经常发生变化 ，是不稳定的。
-![1566045236513](img\1566045236513.png)
+![1566045236513](../img/1566045236513.png)
 ## Vue源码解析之数据驱动
 - 目标：弄清楚模板和数据如何渲染成最终的 DOM。
 - 🤔new Vue()都发生了什么？
 - 1.调用this_init()
-![1566046573218](img\1566046573218.png)
+![1566046573218](../img/1566046573218.png)
 - core/instance/init.js
-![1566046697568](img\1566046697568.png)
+![1566046697568](../img/1566046697568.png)
 - uid
-![1566046809421](img\1566046809421.png)
+![1566046809421](../img/1566046809421.png)
 - vm的属性扩展
 - initLifecycle初始化生命周期
 - initEvent初始化事件
-![1566046907987](img\1566046907987.png)
+![1566046907987](../img/1566046907987.png)
 - el $mount
-![1566046959709](img\1566046959709.png)
+![1566046959709](../img/1566046959709.png)
 - 总结:调用this_init(),在core/instance/init.js中加uid,初始化各种内容，判断el,进行$mount
 ## Vue源码解析之实例挂载的实现
 - src/platform/web/entry-runtime-with-compiler.js 
-![1566047848715](img\1566047848715.png)
+![1566047848715](../img/1566047848715.png)
 - body html 排除
-![1566047903340](img\1566047903340.png)
+![1566047903340](../img/1566047903340.png)
 - 判断render
-![1566047966317](img\1566047966317.png)
-![1566048089244](img\1566048089244.png)
+![1566047966317](../img/1566047966317.png)
+![1566048089244](../img/1566048089244.png)
 - 调用compileToFunction
-![1566048572148](img\1566048572148.png)
+![1566048572148](../img/1566048572148.png)
 - core/instance/lifecycle.js
-![1566048698741](img\1566048698741.png)
-![1566048765238](img\1566048765238.png)
+![1566048698741](../img/1566048698741.png)
+![1566048765238](../img/1566048765238.png)
 ## Vue源码解析之createElement
 - src/core/vdom/create-elemenet.js
-![1566088188974](img\1566088188974.png)
+![1566088188974](../img/1566088188974.png)
 - 内容：
-![1566088335863](img\1566088335863.png)
+![1566088335863](../img/1566088335863.png)
 - 这里根据 normalizationType 的不同，调用了 normalizeChildren(children) 和 simpleNormalizeChildren(children) 方法，将children的任意类型转换成VNode类型 
-![1566088529833](img\1566088529833.png)
+![1566088529833](../img/1566088529833.png)
 - simpleNormalizeChildren 是模板编译，本身就是VNode模型
 ## vue源码解析之render渲染函数
 - core/instance/render.js
-![1566084405526](img\1566084405526.png)
+![1566084405526](../img/1566084405526.png)
 - vm._c----> createElement 模板渲染
 - vm.createElement------>createElement 手写render方法被调用
-![1566085943504](img\1566085943504.png)
-![1566086053512](img\1566086053512.png)
+![1566085943504](../img/1566085943504.png)
+![1566086053512](../img/1566086053512.png)
 - 总结：判断有无render，getHandler hasHanler
 ## vue源码分析之vdom
 - src/core/vdom/vnode.js
-![1566087305595](img\1566087305595.png)
+![1566087305595](../img/1566087305595.png)
 借鉴[snabbdom](https://github.com/snabbdom/snabbdom)，添加Vue.js自己的特色。
 - vdom 要经历create diff patch 等过程，其中create是createElement
