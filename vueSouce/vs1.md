@@ -132,8 +132,7 @@ export default Vue
 - Core/instance/index.js
 - Vue 构造函数
 ![1566044170275](../img/1566044170275.png)
-
- 给Vue.property扩展一些方法
+- 给Vue.property扩展一些方法
 ![1566044356830](../img/1566044356830.png)
 ⏰提示：Vue 不使用class类，而是将这些扩展分散到模块中，便于管理
 - /core/globel-api/index.js
