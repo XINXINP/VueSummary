@@ -74,7 +74,68 @@ if (process.env.TARGET) {
   entries: path.resolve(__dirname, '../src/entries'),
   sfc: path.resolve(__dirname, '../src/sfc')
  ```
- ## 确定入口
+## 目前进度
+- new Vue()
+new 一个vue的实例
+- this._init() 实例的初始化
+- 初始化 合并选项 mergeOptions
+- initLifecycle(vm)
+初始化$parent,$root,$children,$refs等属性
+- initEvents(vm)
+处理父组件传递的事件和回调
+- initRender(vm)
+$slots,$scopedSlots,_c,$createElement
+- callHook(vm, 'beforeCreate');
+调用生命周期beforeCreate
+- initInjections(vm)
+获取注入数据
+- initState(vm)
+初始化props,methods,data,computed,watch等属性
+- initData(vm) 
+初始化数据对象
+- observe 观察
+````javaScript
+Observer {
+ constructor (value: any) {
+    this.value = value
+    this.dep = new Dep()
+    this.vmCount = 0
+    def(value, '__ob__', this)
+    if (Array.isArray(value)) {
+      if (hasProto) {
+        protoAugment(value, arrayMethods)
+      } else {
+        copyAugment(value, arrayMethods, arrayKeys)
+      }
+      this.observeArray(value)
+    } else {
+      this.walk(value)
+    }
+  }
+  walk (obj) {
+    const keys = Object.keys(obj)
+    for (let i = 0; i < keys.length; i++) {
+      defineReactive(obj, keys[i])
+    }
+  }
+  observeArray (items: Array<any>) {
+    for (let i = 0, l = items.length; i < l; i++) {
+      observe(items[i])
+    }
+  }
+}
+````
+- defineReactive函数对象
+- initProvide(vm)
+提供数据注入功能
+- callHook(vm, 'created')
+调用生命周期created
+- vm.$mount(vm.$options.el)
+- mountComponent函数
+🤔正在整理。。。
+## 当我们new Vue()实例时，我们先进入Vue的入口文件
+- 由上面代码可知，vue 是一个构造函数，所有创建vue实例时用的是new
+- new Vue时,先this._init()
  ```javaScript
 import { initMixin } from './init'
 import { stateMixin } from './state'
@@ -122,9 +183,7 @@ export default Vue
 - initGlobalAPI ：初识化api
 ### 待更新。。。
 ## Vue源码解析之入口文件
-
-- 根据package.json找到入口文件
-
+### 根据package.json找到入口文件
 - /entry-runtime-with-compiler.js
 - Runtime/index.js
 - core/index.js
