@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-12 15:10:48
+ * @LastEditTime: 2021-03-18 10:22:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VueSummary\README.md
+-->
 ## 开始vue的历程👉（提示：版本老，正准备更新 ⛅）
 学习vue,我是在18年，那时候我是被vue的书写简单，结构清晰所吸引。后来了解到它可以解耦前端视图和数据，组件化复用，状态管理，虚拟dom等等。正如《深入浅出vue.js》提到的，vue的核心库和生态系统可以满足我们的各种需求。它是一个渐进式框架，我们可以使用它的一部分或更多。
 ## 做项目从中接触到了什么?👉（提示：版本老，正准备更新 ⛅）
@@ -20,6 +28,10 @@
 - keep-alive vue组件缓存问题
 - 清除浮动，产生bfc，将浮动元素的width ,height自动计算在内
 - ObjectId 转换
+### vue API
+- 之前学习vue的时候，看官网整理的，有需要的可以自己下载，支持去vue.js文档去看。
+![vue api](./img/vueapi.png)
+[下载思维导图](./vue.jsAPI.xmind)
 ## 学习vue的建议👉
 - 1.如果你没有看javaScript，建议学习一下，可以看一下菜鸟教程，W3C,或者技术博客
 - 2.初次接触vue可以看一下vue官方文档，看一下菜鸟教程的vue，书本学习也可以看一下《vue.js实战》这本书
