@@ -1,0 +1,21 @@
+### vue的常见问题
+- 首先我用到了ui框架，主要element-ui，之前用过md-ui,muse-ui等，后来Vue支持了element的插件
+- 其次我用了axios来获取后台数据。
+- 使用Vue-cli搭建Vue单页面项目（spa）
+- 使用webpack模块打包工具，使用常见的loader和Plugin来去做一些处理
+- 组件之间的传值的用法
+- 学会使用计算属性在属性值变化时处理逻辑
+- 使用v-if,v-show做视图的呈现判断
+- 创建一个个可以复用的组件，学会如何划分组件
+- 使用路由传值，以及实现路由懒加载
+- 使用路由守卫，当路由跳转到一些页面需要身份认证时，会通过路由守卫的beforeRoute的钩子做一些处理比如验证token
+- 使用http拦截器，在发送请求时，检查是否需要携带token,接受响应式时如果出现404,是否跳转到其他页面中
+- 使用Vue过滤器转换简单文本，时间的格式转换，单位转换
+- watch 与 computed计算属性的区别
+- 模板渲染监听失效
+- 利用生命周期的特点，做不同的处理，善于利用 created，mounted，beforeDestroy等
+- Vue的插槽的问题
+- keep-alive Vue组件缓存问题
+- 清除浮动，产生bfc，将浮动元素的width ,height自动计算在内
+- ObjectId 转换
+- Vuex的state和getters是如何映射到各个组件实例响应式更新状态呢？
